@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HwRailsCore</title>
+  <%= stylesheet_link_tag    'admin_template', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'admin_template', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<h2>Admin layout</h2>
+
+<%= yield %>
+
+</body>
+</html>
