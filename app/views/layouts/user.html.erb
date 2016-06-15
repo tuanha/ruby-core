@@ -2,14 +2,20 @@
 <html>
 <head>
   <title>HwRailsCore</title>
-  <%= stylesheet_link_tag    'user_template', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'user_template', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'user', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'user', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<h2>USER LAYOUT</h2>
-<%= yield %>
+<div class="container">
+  <h2>User Layout</h2>
+
+  <%= render partial: "shared/message" %>
+
+  <%= yield %>
+
+</div>
 
 </body>
 </html>

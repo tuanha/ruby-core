@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require admin_template
+ *= require bootstrap_and_overrides
+ *= require_directory ./admin_template
  *= require_self
  */
