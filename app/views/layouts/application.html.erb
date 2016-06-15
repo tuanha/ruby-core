@@ -7,8 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
+    <h2>Admin Layout</h2>
 
-<%= yield %>
+    <%= render partial: "shared/message" %>
 
+    <%= yield %>
+
+  </div>
 </body>
 </html>

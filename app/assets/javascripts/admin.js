@@ -13,5 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require admin_template
-//= require_tree .
+//= require twitter/bootstrap
+//= require_directory ./admin_template
