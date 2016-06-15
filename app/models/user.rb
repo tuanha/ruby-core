@@ -10,4 +10,17 @@ class User < ActiveRecord::Base
   extend Enumerize
 
   enumerize :role, in: [:admin, :manage, :user], default: :user
+
+  def update_check_password params
+    if params[:password].blank?
+      params.delete("password")
+      params.delete("password_confirmation")
+    end
+    self.update(params)
+  end
+
+  def self.search(email)
+    where("email like ? ", email)
+  end
+
 end
