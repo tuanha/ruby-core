@@ -53,11 +53,12 @@ class Admin::UsersController < AdminController
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]) rescue nil
+    redirect_to admin_users_path, :flash => {danger: "User does not exist"} unless @user
   end
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :role)
+    params.require(:user).permit(:email, :password, :password_confirmation, :avatar, :role)
   end
 
 end
