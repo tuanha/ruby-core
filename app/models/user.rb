@@ -12,11 +12,7 @@ class User < ActiveRecord::Base
   enumerize :role, in: [:admin, :manage, :user], default: :user
 
   def update_check_password params
-    if params[:password].blank?
-      params.delete("password")
-      params.delete("password_confirmation")
-    end
-    self.update(params)
+    params[:password].blank? ? self.update_without_password(params) : self.update(params)
   end
 
   def self.search(email)
