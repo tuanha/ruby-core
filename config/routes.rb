@@ -59,5 +59,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'pages#dashboard'
+
+    resources :users
   end
 end

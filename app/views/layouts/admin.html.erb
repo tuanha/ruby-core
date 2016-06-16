@@ -2,20 +2,42 @@
 <html>
 <head>
   <title>HwRailsCore</title>
-  <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'admin', 'data-turbolinks-track' => true %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track' => true  %>
+
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="">
 
-<div class="container">
-  <h2>Admin Layout</h2>
+<!-- HEADER -->
+<%= render('layouts/admin/header') %>
+<!-- END HEADER -->
 
-  <%= render partial: "shared/message" %>
+<!-- LEFT PANEL -->
+<%= render('layouts/admin/left_panel') %>
+<!-- END LEFT PANEL -->
+
+<div id="main" role="main">
+
+  <!-- RIBBON -->
+  <div id="ribbon">
+
+  </div>
+  <!-- END RIBBON -->
 
   <%= yield %>
 
 </div>
+<!-- END MAIN PANEL -->
 
+<!-- FOOTER -->
+<%= render('layouts/admin/footer') %>
+<!-- END FOOTER -->
+
+<!-- SHORTCUT AREA -->
+<%= render('layouts/admin/shortcut') %>
+<!-- END SHORTCUT AREA -->
+
+<%= javascript_include_tag 'admin', 'data-turbolinks-track' => true %>
 </body>
 </html>
