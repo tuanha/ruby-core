@@ -1,4 +1,11 @@
-<table class="table table-border">
+<div>
+  <%= form_tag admin_users_path, method: :get, class: "form-inline" do %>
+    <%= text_field_tag "query", params[:query], class: "form-control", id: "user_search" %>
+    <%= submit_tag "Search" %>
+  <% end %>
+
+</div>
+<table class="table table-border" id="users_list">
   <thead>
     <tr>
       <th>Index</th>
@@ -12,7 +19,7 @@
     <% @users.each_with_index do |user, index| %>
       <tr>
         <td><%= index + 1 %></td>
-        <td><%= image_tag user.avatar.url(:thumb), width: 100 %></td>
+        <td><%= image_tag user.avatar.url(:thumb), width: 50 %></td>
         <td><%= user.email %></td>
         <td><%= user.role %></td>
         <td>
@@ -32,3 +39,4 @@
 </table>
 
 <%= paginate @users %>
+

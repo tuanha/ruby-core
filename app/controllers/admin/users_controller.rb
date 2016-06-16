@@ -2,8 +2,8 @@ class Admin::UsersController < AdminController
   before_action :set_user, only: [:show, :edit, :destroy, :update]
 
   def index
-    if params[:search_name]
-      @Users = User.search(params[:search_name]).order("created_at DESC").page(params[:page])
+    if params[:query].present?
+      @users = User.search params[:query], operator: "or", fields: [:email], order: {created_at: :desc}, page: params[:page]
     else
       @users = User.all.order("created_at DESC").page(params[:page])
     end
