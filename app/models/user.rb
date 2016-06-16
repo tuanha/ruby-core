@@ -9,14 +9,12 @@ class User < ActiveRecord::Base
 
   extend Enumerize
 
+  searchkick
+
   enumerize :role, in: [:admin, :manage, :user], default: :user
 
   def update_check_password params
     params[:password].blank? ? self.update_without_password(params) : self.update(params)
-  end
-
-  def self.search(email)
-    where("email like ? ", email)
   end
 
 end
