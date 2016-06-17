@@ -71,3 +71,10 @@ sudo dpkg -i elasticsearch-1.7.2.deb
 ```
   User.reindex
 ```
+
+
+##### Update db
+
+```
+rake db:seed
+```
