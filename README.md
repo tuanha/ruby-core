@@ -6,6 +6,8 @@
 
 * Rails 4.2.4
 
+* Mysql
+
 ### About System
 
 * Admin
@@ -72,6 +74,11 @@ sudo dpkg -i elasticsearch-1.7.2.deb
   User.reindex
 ```
 
+##### Install mysql ( if not yet )
+
+```
+sudo apt-get install mysql-server mysql-client libmysqlclient-dev
+```
 
 ##### Update db
 
