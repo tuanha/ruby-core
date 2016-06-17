@@ -85,3 +85,11 @@ sudo apt-get install mysql-server mysql-client libmysqlclient-dev
 ```
 rake db:seed
 ```
+
+### How to use
+
+* Check if user has role admin
+
+```
+user.role.admin?
+```
