@@ -8,3 +8,12 @@
 
 user = User.new(email: 'admin@example.com', password: '123456789', password_confirmation: '123456789', role: 'admin')
 user.save
+
+50.times do
+  User.create(
+          email: Faker::Internet.email,
+          password: 'password',
+          avatar: Faker::Avatar.image
+  )
+end
+
