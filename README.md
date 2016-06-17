@@ -32,18 +32,42 @@
 
 * Admin layout and User layout should not include stylesheets of each other
 
-### Config elastichsearch
 
-* Cài đặt Elasticsearch
-  sudo apt-get update
-  sudo apt-get install elasticsearch
+### Before start
 
-* start và restart lại server ES bằng lệnh
+##### Install Elasticsearch
 
+ * Install
+
+```
+
+wget https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.7.2.deb
+
+sudo dpkg -i elasticsearch-1.7.2.deb
+
+```
+
+ * Auto start Elastic Search for next time restart your computer
+
+```
+ sudo update-rc.d elasticsearch defaults
+```
+
+ * start và restart lại server ES bằng lệnh
+
+```
   sudo service elasticsearch start
   sudo service elasticsearch restart
+```
 
-* Vào console chạy lệnh
+ * Check Elasticsearch status
 
+```
+ sudo service elasticsearch status
+```
+
+ * Vào console chạy lệnh
+
+```
   User.reindex
-
+```
