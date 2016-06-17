@@ -10,11 +10,13 @@
   <!-- pulled right: nav area -->
   <div class="pull-right">
 
-    <!-- collapse menu button -->
-    <div id="hide-menu" class="btn-header pull-right">
-      <span> <a href="javascript:void(0);" data-action="toggleMenu" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>
-    </div>
-    <!-- end collapse menu -->
+    <% if user_signed_in? && current_user.role.admin? %>
+        <!-- collapse menu button -->
+        <div id="hide-menu" class="btn-header pull-right">
+          <span> <a href="javascript:void(0);" data-action="toggleMenu" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>
+        </div>
+        <!-- end collapse menu -->
+    <% end %>
 
     <!-- #MOBILE -->
     <!-- Top menu profile link : this shows only when top menu is active -->
@@ -48,13 +50,15 @@
     </ul>
 
     <!-- logout button -->
-    <div id="logout" class="btn-header transparent pull-right">
-      <span>
-        <%= link_to destroy_user_session_path, method: :delete, title: 'Sign Out' do  %>
-          <i class="fa fa-sign-out"></i>
-        <% end %>
-      </span>
-    </div>
+    <% if user_signed_in? && current_user.role.admin? %>
+        <div id="logout" class="btn-header transparent pull-right">
+          <span>
+            <%= link_to destroy_user_session_path, method: :delete, title: 'Sign Out' do  %>
+              <i class="fa fa-sign-out"></i>
+            <% end %>
+          </span>
+        </div>
+    <% end %>
     <!-- end logout button -->
 
     <!-- search mobile button (this is hidden till mobile view port) -->

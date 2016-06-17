@@ -93,3 +93,9 @@ rake db:seed
 ```
 user.role.admin?
 ```
+
+* Root page
+ * Authenticated user
+ * Unauthenticated user
+ * Admin Root user
+

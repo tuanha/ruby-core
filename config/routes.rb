@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { sessions: "admin/users/sessions" }
+
+  devise_scope :user do
+    authenticated :user do
+      root 'user/pages#dashboard', as: :authenticated_root
+    end
+
+    unauthenticated do
+      root 'admin/users/sessions#new', as: :unauthenticated_root
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -55,7 +66,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  root 'user/pages#welcome'
+  root 'admin/users/sessions#new'
 
   namespace :admin do
     root 'pages#dashboard'
