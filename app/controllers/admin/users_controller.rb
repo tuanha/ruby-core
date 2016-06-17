@@ -3,9 +3,9 @@ class Admin::UsersController < AdminController
 
   def index
     if params[:query].present?
-      @users = User.search params[:query], operator: "or", fields: [:email], order: {created_at: :desc}, page: params[:page]
+      @users = User.search params[:query], operator: "or", fields: [:email], order: {created_at: :desc}
     else
-      @users = User.all.order("created_at DESC").page(params[:page])
+      @users = User.all.order("created_at DESC")
     end
   end
 
