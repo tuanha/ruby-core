@@ -32,6 +32,18 @@
 
 * Admin layout and User layout should not include stylesheets of each other
 
+### Config elastichsearch
 
+* Cài đặt Elasticsearch
+  sudo apt-get update
+  sudo apt-get install elasticsearch
 
+* start và restart lại server ES bằng lệnh
+
+  sudo service elasticsearch start
+  sudo service elasticsearch restart
+
+* Vào console chạy lệnh
+
+  User.reindex
 
