@@ -12,4 +12,4 @@
 //
 
 //=require admin_template
-//=require ./admin/datatable_initialize
+//=require_directory ./admin
