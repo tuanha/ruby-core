@@ -71,6 +71,11 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'pages#dashboard'
 
-    resources :users
+    resources :users do
+
+      collection do
+        post :assign_role
+      end
+    end
   end
 end

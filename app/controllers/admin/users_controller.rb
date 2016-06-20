@@ -1,5 +1,5 @@
 class Admin::UsersController < AdminController
-  before_action :set_user, only: [:show, :edit, :destroy, :update]
+  before_action :set_user, only: [:show, :edit, :destroy, :update, :assign_role]
 
   def index
     if params[:query].present?
@@ -47,6 +47,14 @@ class Admin::UsersController < AdminController
     respond_to do |format|
       flash[:success] = "User was successfully destroyed."
       format.html { redirect_to admin_users_path }
+    end
+  end
+
+  def assign_role
+    if @user.update(role: params[:role])
+      render json: {success: 'successfully'}
+    else
+      render json: {error: 'errors'}
     end
   end
 
