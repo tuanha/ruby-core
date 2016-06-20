@@ -8,7 +8,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="">
-
+  <%= render('shared/loading') %>
   <%= render('shared/admin/header') %>
 
   <% if user_signed_in? && current_user.role.admin? %>
