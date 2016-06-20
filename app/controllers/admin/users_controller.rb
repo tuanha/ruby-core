@@ -3,9 +3,9 @@ class Admin::UsersController < AdminController
 
   def index
     if params[:query].present?
-      @users = User.search params[:query], operator: "or", fields: [:email], order: {created_at: :desc}, page: params[:page]
+      @users = User.search params[:query], operator: "or", fields: [:email], order: {created_at: :desc}
     else
-      @users = User.all.order("created_at DESC").page(params[:page])
+      @users = User.all.order("created_at DESC")
     end
   end
 
@@ -24,7 +24,7 @@ class Admin::UsersController < AdminController
         flash[:success] = "User was successfully created."
         format.html { redirect_to admin_user_path(@user) }
       else
-        flash[:danger] = @user.errors.full_messages
+        flash.now[:danger] = @user.errors.full_messages
         format.html { render :new }
       end
     end
@@ -36,7 +36,7 @@ class Admin::UsersController < AdminController
         flash[:success] = "User was successfully updated."
         format.html { redirect_to admin_user_path(@user) }
       else
-        flash[:danger] = @user.errors.full_messages
+        flash.now[:danger] = @user.errors.full_messages
         format.html { render :edit }
       end
     end
