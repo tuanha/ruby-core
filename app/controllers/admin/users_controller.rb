@@ -24,7 +24,7 @@ class Admin::UsersController < AdminController
         flash[:success] = "User was successfully created."
         format.html { redirect_to admin_user_path(@user) }
       else
-        flash[:danger] = @user.errors.full_messages
+        flash.now[:danger] = @user.errors.full_messages
         format.html { render :new }
       end
     end
@@ -36,7 +36,7 @@ class Admin::UsersController < AdminController
         flash[:success] = "User was successfully updated."
         format.html { redirect_to admin_user_path(@user) }
       else
-        flash[:danger] = @user.errors.full_messages
+        flash.now[:danger] = @user.errors.full_messages
         format.html { render :edit }
       end
     end

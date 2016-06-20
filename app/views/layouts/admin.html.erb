@@ -9,41 +9,33 @@
 </head>
 <body class="">
 
-  <!-- HEADER -->
   <%= render('shared/admin/header') %>
-  <!-- END HEADER -->
 
   <% if user_signed_in? && current_user.role.admin? %>
-    <!-- LEFT PANEL -->
     <%= render('shared/admin/left_panel') %>
-    <!-- END LEFT PANEL -->
   <% end %>
 
 
   <% if user_signed_in? && current_user.role.admin? %>
     <div id="main" role="main">
-      <!-- RIBBON -->
-      <div id="ribbon">
+      <div id="ribbon"></div>
 
-      </div>
-      <!-- END RIBBON -->
-      <div class="col-md-12" style="margin-top: 10px">
+      <div id="content">
         <%= render partial: 'shared/message' %>
+        <%= yield %>
       </div>
-      <%= yield %>
+
     </div>
   <% else %>
+    <div id="content">
+      <%= render partial: 'shared/message' %>
       <%= yield %>
+    </div>
   <% end %>
-  <!-- END MAIN PANEL -->
 
-  <!-- FOOTER -->
   <%= render('shared/admin/footer') %>
-  <!-- END FOOTER -->
 
-  <!-- SHORTCUT AREA -->
   <%= render('shared/admin/shortcut') %>
-  <!-- END SHORTCUT AREA -->
 
   <%= javascript_include_tag 'admin', 'data-turbolinks-track' => true %>
 </body>
