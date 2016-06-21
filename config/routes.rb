@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: "admin/users/sessions" }
+  devise_for :users, controllers: { sessions: "user/sessions", registrations: "user/registrations" }
 
   devise_scope :user do
     authenticated :user do
-      root 'user/pages#dashboard', as: :authenticated_root
+      root 'user/pages#welcome', as: :authenticated_root
     end
 
     unauthenticated do
-      root 'admin/users/sessions#new', as: :unauthenticated_root
+      root 'user/sessions#new', as: :unauthenticated_root
     end
   end
 
@@ -66,7 +66,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  root 'admin/users/sessions#new'
+  root 'user/sessions#new'
 
   namespace :admin do
     root 'pages#dashboard'
