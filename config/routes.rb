@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: "user/sessions", registrations: "user/registrations" }
+  devise_for :users, controllers: { sessions: "devise/user/sessions", registrations: "devise/user/registrations", passwords: "devise/user/passwords"}
+
+  root 'user/pages#welcome'
+
+  namespace :admin do
+    root 'pages#dashboard'
+
+    resources :users
+  end
 
   devise_scope :user do
-    authenticated :user do
-      root 'user/pages#welcome', as: :authenticated_root
-    end
-
-    unauthenticated do
-      root 'user/sessions#new', as: :unauthenticated_root
-    end
+    get "admin/sign_in" => "devise/admin/sessions#new"
+    get "admin/sign_up" => "devise/admin/registrations#new"
+    get "admin/password/new" => "devise/admin/passwords#new"
+    get "admin/password/edit" => "devise/admin/passwords#edit"
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -66,16 +71,4 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  root 'user/sessions#new'
-
-  namespace :admin do
-    root 'pages#dashboard'
-
-    resources :users do
-
-      collection do
-        post :assign_role
-      end
-    end
-  end
 end
