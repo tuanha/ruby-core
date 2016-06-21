@@ -10,7 +10,6 @@
 <body class="">
   <%= render('shared/loading') %>
   <%= render('shared/admin/header') %>
-  <h2>Admin Layout</h2>
 
   <% if user_signed_in? && current_user.role.admin? %>
     <%= render('shared/admin/left_panel') %>
