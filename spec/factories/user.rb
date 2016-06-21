@@ -7,5 +7,4 @@ FactoryGirl.define do
     avatar Faker::Avatar.image
     role 'admin'
   end
-
 end
