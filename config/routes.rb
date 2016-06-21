@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root 'user/pages#wellcome', as: :authenticated_root
+      root 'user/pages#welcome', as: :authenticated_root
     end
 
     unauthenticated do
