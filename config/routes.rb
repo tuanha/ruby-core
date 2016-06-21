@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: "admin/users/sessions" }
+  devise_for :users, controllers: { sessions: "admin/users/sessions", registrations: "admin/users/registrations" }
 
   devise_scope :user do
     authenticated :user do
-      root 'user/pages#dashboard', as: :authenticated_root
+      root 'user/pages#wellcome', as: :authenticated_root
     end
 
     unauthenticated do

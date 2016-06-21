@@ -1,4 +1,4 @@
 class User::PagesController < UserController
-  def welcome
+  def wellcome
   end
 end
