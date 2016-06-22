@@ -41,6 +41,7 @@ gem 'devise-bootstrap-views'
 gem 'paperclip'
 gem 'kaminari'
 gem 'enumerize'
+gem 'sprockets-rails'
 
 #elastichsearch
 gem 'searchkick'

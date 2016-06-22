@@ -258,6 +258,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   searchkick
   spring
+  sprockets-rails
   therubyracer
   turbolinks
   twitter-bootstrap-rails
