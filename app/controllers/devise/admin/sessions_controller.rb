@@ -1,5 +1,5 @@
 class Devise::Admin::SessionsController < Devise::SessionsController
-  layout 'admin'
+  layout 'devise_admin'
 # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in

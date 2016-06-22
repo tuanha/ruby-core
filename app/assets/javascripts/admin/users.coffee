@@ -9,6 +9,7 @@ $('.user_role').on 'change', ->
     dataType: 'json'
     success: (data) ->
       $('#loading').hide()
+      alert data.error if data.error
       return
   return
 

@@ -1,3 +1,3 @@
 class Devise::Admin::PasswordsController < Devise::PasswordsController
-  layout 'admin'
+  layout 'devise_admin'
 end

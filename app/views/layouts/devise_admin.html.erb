@@ -10,14 +10,10 @@
 <body class="">
   <%= render('shared/loading') %>
   <%= render('shared/admin/header') %>
-  <%= render('shared/admin/left_panel') %>
 
-  <div id="main" role="main">
-    <div id="ribbon"></div>
-    <div id="content">
-      <%= render partial: 'shared/message' %>
-      <%= yield %>
-    </div>
+  <div id="content">
+    <%= render partial: 'shared/message' %>
+    <%= yield %>
   </div>
 
   <%= render('shared/admin/footer') %>

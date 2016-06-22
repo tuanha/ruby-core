@@ -54,7 +54,7 @@ class Admin::UsersController < AdminController
     if @user.update(role: params[:role])
       render json: {success: 'successfully'}
     else
-      render json: {error: 'errors'}
+      render json: {error: @user.errors.full_messages}
     end
   end
 
