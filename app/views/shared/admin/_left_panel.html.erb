@@ -2,51 +2,57 @@
 
   <!-- User info -->
   <div class="login-info">
-				<span> <!-- User image size is adjusted inside CSS, it should stay as it -->
+      <span> <!-- User image size is adjusted inside CSS, it should stay as it -->
 
-					<a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
-            <%= current_user.avatar.blank? ? '' : image_tag(current_user.avatar, :class => 'online') %>
-            <span>
-							<%= current_user.email %>
-						</span>
-            <i class="fa fa-angle-down"></i>
-          </a>
+        <a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
+          <%= current_user.avatar.blank? ? '' : image_tag(current_user.avatar, :class => 'online') %>
+          <span>
+            <%= current_user.email %>
+          </span>
+          <i class="fa fa-angle-down"></i>
+        </a>
 
-				</span>
+      </span>
   </div>
   <!-- end user info -->
 
   <!-- NAVIGATION : This navigation is also responsive-->
-  <nav>
+  <nav id="nav-left-menu">
     <ul>
-      <li class="active">
-        <%= link_to admin_root_path  do %>
-            <i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Dashboard</span>
-        <% end %>
-      </li>
-      <li>
-        <a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent">Menu</span></a>
-        <ul>
-          <li>
-            <%= link_to admin_users_path do %>
-              Users
-            <% end %>
-          </li>
+      <%
+         original_fullpath = request.original_fullpath
+         @left_menus.each do |name, params|
+           class_name = String.new
+           has_sub = params['children'].present? ? true : false
+           url = params['url'].present? ? params['url'] : '#'
+           url = params['children'].present? ? '#' : url
+           if params['highlight'].present?
+             if original_fullpath.include? params['highlight']
+               class_name += ' active '
+             end
+           end
 
-          <li>
-            <a href="morris.html">Morris Charts</a>
-          </li>
-          <li>
-            <a href="inline-charts.html">Inline Charts</a>
-          </li>
-          <li>
-            <a href="dygraphs.html">Dygraphs</a>
-          </li>
-          <li>
-            <a href="chartjs.html">Chart.js <span class="badge pull-right inbox-badge bg-color-yellow">new</span></a>
-          </li>
-        </ul>
-      </li>
+           concat "<li class='#{class_name}'>
+          <a href='#{url}'>
+          <i class='fa fa-lg fa-fw #{params['icon']}'></i>
+          <span class='menu-item-parent'>#{name}</span>
+          </a>".html_safe
+
+           if has_sub
+             concat "<ul>".html_safe
+             params['children'].each do |child_name, child_params|
+               child_class_name = String.new
+               child_url = child_params['url'].present? ? child_params['url'] : '#'
+               if original_fullpath.include? child_params['highlight']
+                 child_class_name = 'active'
+               end
+               concat "<li class='#{child_class_name}'><a href='#{child_url}'>#{child_name}</a><li>".html_safe
+             end
+             concat "</ul>".html_safe
+           end
+           concat "</li>".html_safe
+         end
+      %>
     </ul>
   </nav>
 

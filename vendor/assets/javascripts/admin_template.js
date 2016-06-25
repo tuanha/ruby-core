@@ -12,3 +12,4 @@
 //= require ./admin/plugin/datatable-responsive/datatables.responsive.min
 //= require ./admin/smartwidgets/jarvis.widget.min
 //= require ./admin/app.min
+//= require ./admin/fontawesome-iconpicker.min

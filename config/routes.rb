@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: { sessions: "devise/user/sessions", registrations: "devise/user/registrations", passwords: "devise/user/passwords"}
 
   root 'user/pages#welcome'
@@ -6,6 +7,11 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'pages#dashboard'
 
+    resources :backend_menus do
+      collection do
+        post 'ajax_update_position'
+      end
+    end
     resources :users do
       collection do
         post 'assign_role'
