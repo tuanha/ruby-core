@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     if resource.role.admin?
       admin_root_path
     else
-      super
+      edit_user_registration_path
     end
   end
 end
