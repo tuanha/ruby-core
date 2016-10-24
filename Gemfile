@@ -43,9 +43,6 @@ gem 'kaminari'
 gem 'enumerize'
 gem 'sprockets-rails'
 
-#elastichsearch
-gem 'searchkick'
-
 gem 'faker'
 
 gem 'annotate'

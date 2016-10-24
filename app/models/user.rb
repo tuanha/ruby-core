@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
 
   extend Enumerize
 
-  searchkick
+  #searchkick
 
   enumerize :role, in: [:admin, :manage, :user], default: :user
 
