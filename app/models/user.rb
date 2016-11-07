@@ -42,9 +42,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   extend Enumerize
-
-  #searchkick
-
   enumerize :role, in: [:admin, :manage, :user], default: :user
 
   def update_check_password params

@@ -29,9 +29,9 @@ class AdminController < ActionController::Base
     menu_output = Hash.new
     menu_input.each do |menu|
       menu_output[menu.name] = Hash[
-          'icon' => menu.icon,
-          'url' => menu.url,
-          'highlight' => menu.highlight
+        'icon' => menu.icon,
+        'url' => menu.url,
+        'highlight' => menu.highlight
       ]
     end
     menu_output
