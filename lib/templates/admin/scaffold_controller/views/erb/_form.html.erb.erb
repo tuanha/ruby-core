@@ -1,40 +1,37 @@
-<%%= form_for(<%= "[:#{prefix}, @#{singular_table_name}]" %>) do |f| %>
-  <%% if @<%= singular_table_name %>.errors.any? %>
-    <div id="error_explanation">
-      <h2><%%= pluralize(@<%= singular_table_name %>.errors.count, "error") %> prohibited this <%= singular_table_name %> from being saved:</h2>
-
-      <ul>
-      <%% @<%= singular_table_name %>.errors.full_messages.each do |msg| %>
-        <li><%%= msg %></li>
-      <%% end %>
-      </ul>
+<%%= form_for(<%= "[:#{prefix}, @#{singular_table_name}]" %>, :html => {class: 'form-horizontal', id: 'smart-form-register'}) do |f| %>
+  <% attributes.each do |attribute| -%>
+    <% if attribute.password_digest? -%>
+      <div class="form-group">
+        <label for="information" class="col-sm-2 control-label"><%= f.label :password %></label>
+        <div class="col-sm-8">
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="information" class="col-sm-2 control-label"><%= f.label :password_confirmation %></label>
+        <div class="col-sm-8">
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </div>
+      </div>
+    <% else -%>
+      <% if attribute.reference? -%>
+        <div class="form-group">
+          <%%= f.label :<%= attribute.column_name %>, class: "col-sm-2 control-label" %><br>
+          <div class="col-sm-8">
+            <%%= f.collection_select :<%= attribute.column_name %>, <%= attribute.name.camelize %>.all, :id, :name, prompt: true, class: 'form-control'  %>
+          </div>
+        </div>
+      <% else %>
+        <%%= f.label :<%= attribute.column_name %>, class: "col-sm-2 control-label" %><br>
+        <div class="col-sm-8">
+          <%%= f.<%= attribute.field_type %> :<%= attribute.name %>, class: 'form-control' %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-8">
+      <%= f.submit :class => "btn btn-primary"%>
     </div>
-  <%% end %>
-
-<% attributes.each do |attribute| -%>
-  <div class="field">
-<% if attribute.password_digest? -%>
-    <%%= f.label :password %><br>
-    <%%= f.password_field :password %>
   </div>
-  <div>
-    <%%= f.label :password_confirmation %><br>
-    <%%= f.password_field :password_confirmation %>
-<% else -%>
-  <% if attribute.reference? -%>
-    <%%= f.label :<%= attribute.column_name %> %><br>
-    <%%= f.<%= attribute.field_type %> :<%= attribute.column_name %> %>
-  <% else -%>
-    <%%= f.label :<%= attribute.name %> %><br>
-    <%%= f.<%= attribute.field_type %> :<%= attribute.name %> %>
-  <% end -%>
-<% end -%>
-  </div>
-<% end -%>
-  <div class="actions">
-    <%%= f.submit %>
-  </div>
-<%% end %>
-
-
-
+<% end %>
