@@ -42,7 +42,7 @@ gem 'paperclip'
 gem 'kaminari'
 gem 'enumerize'
 gem 'sprockets-rails'
-
+gem 'rails-admin-scaffold'
 gem 'faker'
 
 gem 'annotate'
