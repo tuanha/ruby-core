@@ -44,6 +44,7 @@ gem 'enumerize'
 gem 'sprockets-rails'
 gem 'rails-admin-scaffold'
 gem 'faker'
+gem 'ckeditor'
 
 gem 'annotate'
 
