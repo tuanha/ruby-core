@@ -37,43 +37,6 @@
 
 ### Before start
 
-##### Install Elasticsearch
-
- * Install
-
-```
-
-wget https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.7.2.deb
-
-sudo dpkg -i elasticsearch-1.7.2.deb
-
-```
-
- * Auto start Elastic Search for next time restart your computer
-
-```
- sudo update-rc.d elasticsearch defaults
-```
-
- * start và restart lại server ES bằng lệnh
-
-```
-  sudo service elasticsearch start
-  sudo service elasticsearch restart
-```
-
- * Check Elasticsearch status
-
-```
- sudo service elasticsearch status
-```
-
- * Vào console chạy lệnh
-
-```
-  User.reindex
-```
-
 ##### Install mysql ( if not yet )
 
 ```
@@ -93,6 +56,11 @@ rake db:seed
 ```
 user.role.admin?
 ```
+#### how to generator templates for admin
+
+bin/rails g admin:scaffold_controller Post title:string content:text --parent_controller=admin
+
+PS: with model Post {:title, :contnet}
 
 * Root page
  * Authenticated user
