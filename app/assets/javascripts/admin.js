@@ -10,6 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-
+//= require core_template
 //=require admin_template
 //=require_directory ./admin

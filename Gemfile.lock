@@ -45,9 +45,8 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (9.0.5)
-    ckeditor (4.2.0)
-      cocaine
-      orm_adapter (~> 0.5.0)
+    ckeditor_rails (4.5.10)
+      railties (>= 3.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -229,7 +228,7 @@ PLATFORMS
 DEPENDENCIES
   annotate
   byebug
-  ckeditor
+  ckeditor_rails
   coffee-rails (~> 4.1.0)
   devise
   devise-bootstrap-views

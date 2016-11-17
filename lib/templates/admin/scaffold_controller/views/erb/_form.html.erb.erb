@@ -28,7 +28,7 @@
         <% elsif attribute.type.to_s == 'text' %>
           <%%= f.label :<%= attribute.column_name %>, class: "col-sm-2 control-label" %><br>
           <div class="col-sm-8">
-            <%%= f.cktext_area :<%= attribute.column_name %>, class: 'form-control ckeditor'%>
+            <%%= f.text_area :<%= attribute.column_name %>, class: 'form-control ckeditor'%>
           </div>
         <% else %>
           <%%= f.label :<%= attribute.column_name %>, class: "col-sm-2 control-label" %><br>

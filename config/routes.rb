@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  mount Ckeditor::Engine => '/ckeditor'
   devise_for :users, controllers: { sessions: "devise/user/sessions", registrations: "devise/user/registrations", passwords: "devise/user/passwords"}
 
   root 'user/pages#welcome'

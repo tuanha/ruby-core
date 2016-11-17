@@ -3,3 +3,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require twitter/bootstrap
+//= require ckeditor-jquery
+//= require global
